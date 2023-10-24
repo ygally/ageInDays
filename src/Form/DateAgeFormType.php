@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,6 +24,10 @@ class DateAgeFormType extends AbstractType
                         'message' => 'Date should be in yyyyMMdd format',
                     ]),
                 ],
+            ])
+            ->add('referenceDate', DateType::class, [
+                'required' => false,
+                'widget' => 'single_text',
             ])
             ->add('calculate', SubmitType::class, [
                 'label' => 'Calculate Age',

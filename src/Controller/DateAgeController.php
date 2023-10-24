@@ -20,8 +20,8 @@ class DateAgeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $date = \DateTime::createFromFormat('Ymd', $data['date']);
-            $today = new \DateTime();
-            $interval = $date->diff($today);
+            $referenceDate = $data['referenceDate'] ?? new \DateTime();
+            $interval = $date->diff($referenceDate);
             $ageInDays = $interval->format('%R%a days');
         } else {
             $ageInDays = null;
