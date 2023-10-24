@@ -1,0 +1,17 @@
+{# templates/date_age/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Age Calculator{% endblock %}
+
+{% block body %}
+    <h1>Calculate Age</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.date) }}
+    {{ form_row(form.calculate) }}
+    {{ form_end(form) }}
+
+    {% if ageInDays is not null %}
+        <p>Age in days: {{ ageInDays }}</p>
+    {% endif %}
+{% endblock %}
